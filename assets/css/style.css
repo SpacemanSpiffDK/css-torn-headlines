@@ -8,6 +8,49 @@ body {
 	padding: 5vw;
 	font-size: 4vw;
 	line-height: 1.4;
+	color: #ffff33;
+	background-color: #3333ff;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+.torn {
+	position: relative;
+}
+
+.torn-base {
+	opacity: 0;
+}
+
+.torn-elm {
+	position: absolute;
+	left: 0;
+	top: 0;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: infinite;
+	        animation-iteration-count: infinite;
+}
+
+.torn-1 {
+	-webkit-clip-path: polygon(0% 0%, 160% 0%, -80% 100%);
+	        clip-path: polygon(0% 0%, 160% 0%, -80% 100%);
+	-webkit-animation-name: torn1;
+	        animation-name: torn1;
+	-webkit-animation-duration: 3s;
+	        animation-duration: 3s;
+	left: .3%;
+}
+
+.torn-2 {
+	-webkit-clip-path: polygon(160% 0%, 160% 100%, -80% 100%);
+	        clip-path: polygon(160% 0%, 160% 100%, -80% 100%);
+	-webkit-animation-name: torn2;
+	        animation-name: torn2;
+	-webkit-animation-duration: 5s;
+	        animation-duration: 5s;
 }
 
 @media (min-width: 641px) {
@@ -17,51 +60,39 @@ body {
 	}
 }
 
-
-/* test styles */
-
-body {
-	background-color: var(--frappe-color-background);	
-	padding: 0;
+@-webkit-keyframes torn1 {
+	0% 		{ -webkit-transform: translate(0); transform: translate(0); }
+	74%		{ -webkit-transform: translate(0); transform: translate(0); }
+	75% 	{ -webkit-transform: translate(1%, -1%); transform: translate(1%, -1%); }
+	99% 	{ -webkit-transform: translate(1%, -1%); transform: translate(1%, -1%); }
+	100% 	{ -webkit-transform: translate(0); transform: translate(0); }
 }
 
-/* button */
-.btn {
-	display: inline-block;
-	text-decoration: none;
-	border-radius: var(--frappe-radius-component-s);
-	background-color: var(--frappe-color-primary);
-	color: var(--frappe-color-on-primary);
-	box-shadow: var(--frappe-shadow);
-	transition: box-shadow .2s ease-out;
+@keyframes torn1 {
+	0% 		{ -webkit-transform: translate(0); transform: translate(0); }
+	74%		{ -webkit-transform: translate(0); transform: translate(0); }
+	75% 	{ -webkit-transform: translate(1%, -1%); transform: translate(1%, -1%); }
+	99% 	{ -webkit-transform: translate(1%, -1%); transform: translate(1%, -1%); }
+	100% 	{ -webkit-transform: translate(0); transform: translate(0); }
 }
 
-.btn.mwa {
-	background-color: var(--frappe-color-accent);
-	color: var(--frappe-color-on-accent);
+@-webkit-keyframes torn2 {
+	0% 		{ -webkit-transform: translate(0); transform: translate(0); }
+	59%		{ -webkit-transform: translate(0); transform: translate(0); }
+	60% 	{ -webkit-transform: translate(-1%, 1%); transform: translate(-1%, 1%); }
+	74% 	{ -webkit-transform: translate(-1%, 1%); transform: translate(-1%, 1%); }
+	75% 	{ -webkit-transform: translate(0); transform: translate(0); }
+	100% 	{ -webkit-transform: translate(0); transform: translate(0); }
 }
 
-.btn:active {
-	box-shadow: var(--frappe-shadow-depressed);
+@keyframes torn2 {
+	0% 		{ -webkit-transform: translate(0); transform: translate(0); }
+	59%		{ -webkit-transform: translate(0); transform: translate(0); }
+	60% 	{ -webkit-transform: translate(-1%, 1%); transform: translate(-1%, 1%); }
+	74% 	{ -webkit-transform: translate(-1%, 1%); transform: translate(-1%, 1%); }
+	75% 	{ -webkit-transform: translate(0); transform: translate(0); }
+	100% 	{ -webkit-transform: translate(0); transform: translate(0); }
 }
 
-@media (min-width: 641px){
-	.flex > div {
-		width: 50%;
-	}
-}
 
-@media (max-width: 640px){
-	.flex {
-		display: block;
-	}
 
-	.flex > div {
-		width: 100%;
-		margin-bottom: var(--frappe-density-m);
-	}
-}
-
-h1, p {
-	margin-bottom: var(--frappe-density-m);
-}
