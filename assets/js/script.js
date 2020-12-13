@@ -1,11 +1,7 @@
 // JS by Dan Høegh
 // UCN MMD 2019
 
-const selectorTarget = '.torn';
-const elms = document.querySelectorAll(selectorTarget);
-
-for (let i = 0; i < elms.length; i++) {
-    let elm = elms[i];
+const tearElement = (elm, index) => {
     let elmText = elm.textContent;
     elm.textContent = '';
     for (let j = 0; j < 3; j++) {
@@ -20,3 +16,8 @@ for (let i = 0; i < elms.length; i++) {
         elm.appendChild(newElm);
     }
 }
+
+const selectorTarget = '.torn';
+const elms = document.querySelectorAll(selectorTarget);
+
+elms.forEach(tearElement);
